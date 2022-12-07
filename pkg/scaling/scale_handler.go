@@ -465,6 +465,8 @@ func buildScaler(ctx context.Context, client client.Client, triggerType string, 
 		return scalers.NewSolaceScaler(config)
 	case "stan":
 		return scalers.NewStanScaler(config)
+	case "incorta-telemetry":
+		return scalers.NewIncortaTelemetryScaler(config)
 	default:
 		return nil, fmt.Errorf("no scaler found for type: %s", triggerType)
 	}
